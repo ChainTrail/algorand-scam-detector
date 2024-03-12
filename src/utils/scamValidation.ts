@@ -6,7 +6,7 @@ export class ScamValidation {
         if(blacklistedSender === true) {
             return true;
         }
-        
+
         let blacklistedDomain = this.validateNote(txn.transaction.note, blacklist);
 
         if(blacklistedDomain === true) {
@@ -17,22 +17,26 @@ export class ScamValidation {
     }
 
     static validateNote(b64Note: string, blacklist) {
-        if(b64Note === null) {
+        if(b64Note === null || typeof b64Note == "undefined" || b64Note === "") {
             return false;
         }
 
-        let domainBlacklist = this.extractBlacklistedDomains(blacklist);
-        let note = atob(b64Note);
+        try{
+            let domainBlacklist = this.extractBlacklistedDomains(blacklist);
+            let note = atob(b64Note);
 
-        let isScam = false;
-        domainBlacklist.forEach(domain => {
-            if(note.indexOf(domain) !== -1) {
-                isScam = true;
-                return;
-            }
-        });
-
-        return isScam;
+            let isScam = false;
+            domainBlacklist.forEach(domain => {
+                if(note.indexOf(domain) !== -1) {
+                    isScam = true;
+                    return;
+                }
+            });
+            
+            return isScam;
+        } catch(e) {
+            return false;
+        }
     }
 
     static validateSender(sender: string, blacklist: any) {
