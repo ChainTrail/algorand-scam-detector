@@ -14,7 +14,8 @@
 	},
 	"dependencies": {
 		"@cloudflare/itty-router-openapi": "^1.0.1",
-		"algosdk": "^2.7.0"
+		"algosdk": "^2.7.0",
+		"mustache": "^4.2.0"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20240222.0",

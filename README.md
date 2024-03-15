@@ -4,6 +4,11 @@ A simple and easy to use API in order to identify whether a transaction is a kno
 
 Scam Detector is developed to be deployed on Cloudflare Workers, which is a serverless solution. This repository is maintained by NFNomad, the creator of Chaintrail.io. Although everyone is invited to contribute, improve or run their own version of the Scam Detector API.
 
+## Possible endpoints
+
+API: `/api/scam/{txId}`
+Scam Explainer: `/scam/{txId}`
+
 ## Get started
 
 1. Sign up for [Cloudflare Workers](https://workers.dev). The free tier is more than enough for a dApp with decent traffic.

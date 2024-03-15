@@ -8,3 +8,6 @@ ALGO_INDEXER_SERVER="https://mainnet-idx.algonode.cloud"
 
 ## Chaintrail
 CHAINTRAIL_BLACKLIST_URL="https://chaintrail.io/api/v1/scam/blacklist"
+
+[site]
+bucket = "./public"

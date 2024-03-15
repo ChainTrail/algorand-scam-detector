@@ -1,5 +1,6 @@
 import { OpenAPIRouter } from "@cloudflare/itty-router-openapi";
 import { ScamDetectorFetch } from "./endpoints/scamDetectorFetch";
+import { ExplainScamFetch } from "./endpoints/explainScamFetch";
 import { createCors } from 'itty-router'
 
 export const router = OpenAPIRouter({
@@ -18,6 +19,9 @@ router.all('*', preflight);
 
 // Scam endpoint
 router.get("/api/scam/:txId/", ScamDetectorFetch);
+
+// Explain Scam Page
+router.get("/scam/:txId/", ExplainScamFetch);
 
 // 404 for everything else
 router.all("*", () =>

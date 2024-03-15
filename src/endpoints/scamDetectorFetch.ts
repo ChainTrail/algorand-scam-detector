@@ -46,20 +46,21 @@ export class ScamDetectorFetch extends OpenAPIRoute {
         // Retrieve txId to validate whether it's scam or not
 		const { txId } = data.params;
 
-                let blacklist = await Chaintrail.getBlacklist(env);
+		let blacklist = await Chaintrail.getBlacklist(env);
 
-                if(blacklist === false) {
-                    return this.returnErrorResponse("Blacklist couldn't be loaded from Chaintrail", 400);
-                }
+		if(blacklist === false) {
+			return this.returnErrorResponse("Blacklist couldn't be loaded from Chaintrail", 400);
+		}
 
-                blacklist = blacklist['data'];
-                
-                let txn: any = await AlgorandBlockchain.fetchTxId(env, txId);
-                if (txn === false || txn.transaction === undefined) {
-        			return this.returnErrorResponse("Transaction not found", 404);
-        		}
+		blacklist = blacklist['data'];
+		
+		let txn: any = await AlgorandBlockchain.fetchTxId(env, txId);
+		if (txn === false || txn.transaction === undefined) {
+			return this.returnErrorResponse("Transaction not found", 404);
+		}
 
-                let txIsScam = ScamValidation.isScam(txn, blacklist);
+		let txIsScam = ScamValidation.isScam(txn, blacklist);
+
 		return {
 			success: true,
 			scam: {
