@@ -4,10 +4,23 @@ A simple and easy to use API in order to identify whether a transaction is a kno
 
 Scam Detector is developed to be deployed on Cloudflare Workers, which is a serverless solution. This repository is maintained by NFNomad, the creator of Chaintrail.io. Although everyone is invited to contribute, improve or run their own version of the Scam Detector API.
 
-## Possible endpoints
+## How to integrate
 
-API: `/api/scam/{txId}`
-Scam Explainer: `/scam/{txId}`
+You can simply use the hosted version available on [scam-detector.chaintrail.io](https://scam-detector.chaintrail.io). There you can use the `/api/scam/{txId}` endpoint to validate whether a response is a scam.
+
+```json
+{
+   "success":true,
+   "scam":{
+      "txId":"EIJR63IRTZ22NMVGPNOLJ77XFZFGBQAMTLCHC5EVLQI5A4MDQTJQ",
+      "isScam":true
+   }
+}
+```
+
+If `scam.isScam` is `true`, the transaction is deemed a known scam by the system. This means you can show a warning message around the note field or simply on top of a transaction view. 
+
+If you like to give a bit more information to the end-user. You can link to our explainer page by creating a link to `scam-detector.chaintrail.io/scam/{txId}` where end-users can get more information from.
 
 ## Get started
 
