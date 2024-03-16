@@ -1,6 +1,6 @@
 # Scam Detector by Chaintrail
 
-A simple and easy to use API in order to identify whether a transaction is a known scam or not. This service relies on the free to use indexer by [Nodely.io](https://nodely.io) and the domain & addresses blacklist maintained by [Chaintrail.io](https://chaintrail.io).
+A simple and easy to use API in order to identify whether a transaction is a known scam or not. This service relies on the free to use indexer by [Nodely.io](https://nodely.io) and the domain & addresses blocklist maintained by [Chaintrail.io](https://chaintrail.io).
 
 Scam Detector is developed to be deployed on Cloudflare Workers, which is a serverless solution. This repository is maintained by NFNomad, the creator of Chaintrail.io. Although everyone is invited to contribute, improve or run their own version of the Scam Detector API.
 
@@ -33,7 +33,7 @@ If you like to give a bit more information to the end-user. You can link to our 
 
 1. The main router, including docs, is described in `src/index.ts`.
 2. scamDetectorFetch is registered under `src/endpoints/`.
-3. The utils folder contains utility classes which are used to fetch a transaction, fetch the latest blacklist and validate a transaction.
+3. The utils folder contains utility classes which are used to fetch a transaction, fetch the latest blocklist and validate a transaction.
 
 ## Development
 
